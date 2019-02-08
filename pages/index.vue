@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(:class="['container', 'mx-auto', 'my-4']")
+  div
     .flex
       //- Карточка профиля
       .w-full.rounded.overflow-hidden.shadow-lg.bg-white(v-if="person")
@@ -41,12 +41,16 @@
         .mt-4.ml-4.rounded.overflow-hidden.shadow-lg.bg-white(v-if="person")
           .py-4.px-6.text-lg.border-dashed.border-grey-dark.border-b Опыт работы
           .py-4.px-6
+            experience-card(v-for="item in person.fields.experience" :experience="item")
 </template>
 
 <script>
 import client from '../plugins/contentful'
 
+import ExperienceCard from '../components/ExperienceCard'
+
 export default {
+  components: { ExperienceCard },
   async asyncData() {
     const persons = await client.getEntries({
       content_type: 'person'
