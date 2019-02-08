@@ -1,12 +1,21 @@
 <template lang="pug">
   .container
-    .max-w-sm.rounded.overflow-hidden.shadow-lg
-      .px-6.py-4
-        .font-bold.text-xl.mb-2 {{ person.fields.fullName }}
-        .font-bold.text-xl.mb-2 {{ person.fields.email }}
-        .font-bold.text-xl.mb-2 {{ person.fields.github }}
+    .max-w-sm.rounded.overflow-hidden.shadow-lg(v-if="person")
+      .flex.px-6.py-4
+        img.block.h-48.rounded-full.mx-auto.mb-4(:src="person.fields.avatar.fields.file.url")
+        .text-center.text-left.flex-grow
+          .text-xl.font-semibold {{ person.fields.fullName }}
+          .text-sm.text-grey-dark {{ person.fields.summary }}
+          .text-sm.text-grey-dark {{ person.fields.github }}
+          a(
+            :class="['text-blue', 'hover:text-blue-darker']"
+            :href="person.fields.github"
+          ) GitHub
+          a(
+            :class="['text-blue', 'hover:text-blue-darker']"
+            :href="person.fields.vk"
+          ) VK
 </template>
-
 
 <script>
 import client from '../plugins/contentful'
