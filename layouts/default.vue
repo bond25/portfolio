@@ -1,7 +1,7 @@
-<template>
-  <div>
-    <nuxt />
-  </div>
+<template lang="pug">
+  .h-screen
+    .overflow-auto.h-full.bg-grey-lighter
+      nuxt
 </template>
 
 <style>
