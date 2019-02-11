@@ -8,6 +8,7 @@
               nuxt-link.text-teal.no-underline.px-2.py-2.text-center(
                 :class="['hover:text-teal-dark']"
                 v-for="item in menu"
+                :key="item.label"
                 :to="item.path"
               ) {{ item.label }} 
         nuxt

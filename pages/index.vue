@@ -36,12 +36,10 @@
             .text-base.px-6 Базы данных
             ul.list-reset.font-thin.text-grey-darker
               li.py-2.px-6(v-for="db in person.fields.databases" :class="['hover:bg-grey-lighter', 'cursor-pointer']") {{ db }}
-      div(class="w-3/4")
+      div.flex.flex-wrap(class="w-3/4")
         //- Карточка опыта работы
-        .mt-4.ml-4.rounded.overflow-hidden.shadow-lg.bg-white(v-if="person")
-          .py-4.px-6.text-lg.border-dashed.border-grey-dark.border-b Опыт работы
-          .py-4.px-6
-            experience-card(v-for="item in person.fields.experience" :experience="item")
+        template(v-if="person" )
+          experience-card(v-for="item in person.fields.experience" :experience="item")
 </template>
 
 <script>
