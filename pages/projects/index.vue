@@ -6,13 +6,14 @@
     )
       .py-4.px-6.text-lg.border-dashed.border-grey-dark.border-b {{ project.fields.title }}
       img.mt-1.h-64(:src="project.fields.images[0].fields.file.url")
-      .py-5.px-6 Стек:
+      .py-4.px-6 Стек:
         .text-sm.text-grey-dark(
           v-for="name in project.fields.technologies"
         ) {{ name }}
-      nuxt-link(:to="`/projects/${project.sys.id}`").px-4.py-2.text-white.rounded.bg-teal(
-        :class="['active:bg-teal-dark', 'hover:bg-teal-light']"
-      ) Превью
+      .flex.pb-4.px-6
+        nuxt-link(:to="`/projects/${project.sys.id}`").px-4.py-2.text-white.rounded.bg-teal(
+          :class="['active:bg-teal-dark', 'hover:bg-teal-light']"
+        ) Подробнее
 </template>
 
 <script>

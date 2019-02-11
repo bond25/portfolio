@@ -1,6 +1,8 @@
 <template lang="pug">
   .w-full.mt-4.ml-4.rounded.overflow-hidden.shadow-lg.bg-white(v-if="experience")
-    .py-4.px-6.text-lg.border-dashed.border-grey-dark.border-b {{ experience.fields.company }}
+    .flex.justify-between.items-baseline.py-4.px-6.border-dashed.border-grey-dark.border-b
+      .text-lg {{ experience.fields.company }}
+      .text-sm.text-green(v-if="experience.fields.tillToday") текущее место работы
     .py-4.px-6
       .flex.flex-col
         .flex.items-start

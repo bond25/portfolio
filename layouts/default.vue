@@ -1,7 +1,7 @@
 <template lang="pug">
   .h-screen
     .overflow-auto.h-full.bg-grey-lighter
-      .container.mx-auto
+      .container.mx-auto.mb-8
         nav.flex.py-6
           .flex.w-full.block.flex-grow.items-center
             .text-sm

@@ -7,20 +7,20 @@
           .text-3xl 👨‍💻
           .text-lg.ml-4 Общие
         .flex.px-6.py-4
-          img.block.h-48.rounded-full.mx-auto.mb-4(:src="person.fields.avatar.fields.file.url")
+          img.block.h-32.rounded-full.mx-auto.mb-4(:src="person.fields.avatar.fields.file.url")
           .ml-12.text-left.flex-grow
-            .text-xl.font-semibold {{ person.fields.fullName }}
-            .text-sm.text-grey-dark {{ person.fields.summary }}
-            .text-sm.text-grey-dark Языки: {{ person.fields.languages.join(' ') }}
-
-            a(
-              :class="['text-blue', 'hover:text-blue-darker']"
-              :href="person.fields.github"
-            ) GitHub
-            a(
-              :class="['ml-4', 'text-blue', 'hover:text-blue-darker']"
-              :href="person.fields.vk"
-            ) VK
+            .mt-2.text-xl.font-semibold.text-grey-darkest {{ person.fields.fullName }}
+            .mt-2.text-sm.text-grey-dark {{ person.fields.summary }}
+            .mt-2.text-sm.text-grey-darkest Языки: {{ person.fields.languages.join(' ') }}
+            .mt-2.flex
+              a(
+                :class="['text-blue', 'hover:text-blue-darker', 'no-underline']"
+                :href="person.fields.github"
+              ) GitHub
+              a(
+                :class="['ml-4', 'text-blue', 'hover:text-blue-darker', 'no-underline']"
+                :href="person.fields.vk"
+              ) VK
     
     .flex
       div(class="w-1/4")
@@ -42,7 +42,7 @@
       div.flex.flex-wrap(class="w-3/4")
         //- Карточка опыта работы
         template(v-if="person" )
-          experience-card(v-for="item in person.fields.experience" :experience="item")
+          experience-card(v-for="(item, index) in experience" :key="index" :experience="item")
 </template>
 
 <script>
@@ -57,7 +57,8 @@ export default {
       content_type: 'person'
     })
     return {
-      person: persons.items[0]
+      person: persons.items[0],
+      experience: persons.items[0].fields.experience.reverse()
     }
   }
 }
