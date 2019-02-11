@@ -45,6 +45,11 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
+  env: {
+    space: process.env.SPACE || '',
+    cdt: process.env.CDT || ''
+  },
+
   /*
   ** Build configuration
   */
