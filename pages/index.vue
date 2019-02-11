@@ -9,7 +9,6 @@
           .ml-12.text-left.flex-grow
             .text-xl.font-semibold {{ person.fields.fullName }}
             .text-sm.text-grey-dark {{ person.fields.summary }}
-            .text-sm.text-grey-dark {{ person.fields.github }}
             .text-sm.text-grey-dark Языки:
             .text-sm.text-grey-dark(v-for="lang in person.fields.languages") {{ lang }}
             a(
