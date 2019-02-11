@@ -3,14 +3,16 @@
     .flex
       //- Карточка профиля
       .w-full.rounded.overflow-hidden.shadow-lg.bg-white(v-if="person")
-        .py-4.px-6.text-lg.border-dashed.border-grey-dark.border-b Общие
+        .py-4.px-6.border-dashed.border-grey-dark.border-b.flex.items-baseline
+          .text-3xl 👨‍💻
+          .text-lg.ml-4 Общие
         .flex.px-6.py-4
           img.block.h-48.rounded-full.mx-auto.mb-4(:src="person.fields.avatar.fields.file.url")
           .ml-12.text-left.flex-grow
             .text-xl.font-semibold {{ person.fields.fullName }}
             .text-sm.text-grey-dark {{ person.fields.summary }}
-            .text-sm.text-grey-dark Языки:
-            .text-sm.text-grey-dark(v-for="lang in person.fields.languages") {{ lang }}
+            .text-sm.text-grey-dark Языки: {{ person.fields.languages.join(' ') }}
+
             a(
               :class="['text-blue', 'hover:text-blue-darker']"
               :href="person.fields.github"
@@ -24,7 +26,9 @@
       div(class="w-1/4")
         //- Карточка скилов
         .mt-4.rounded.overflow-hidden.shadow-lg.bg-white(v-if="person")
-          .py-4.px-6.text-lg.border-dashed.border-grey-dark.border-b Технологии
+          .py-4.px-6.border-dashed.border-grey-dark.border-b.flex.items-baseline
+            .text-3xl 💻
+            .text-lg.ml-4 Технологии
           .py-4
             .text-base.px-6 Языки
             ul.list-reset.font-thin.text-grey-darker
