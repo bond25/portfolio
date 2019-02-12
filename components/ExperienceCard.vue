@@ -1,5 +1,5 @@
 <template lang="pug">
-  .w-full.mt-4.ml-4.rounded.overflow-hidden.shadow-lg.bg-white(v-if="experience")
+  .w-full.mt-4.rounded.overflow-hidden.shadow-lg.bg-white(class="lg:ml-4" v-if="experience")
     .flex.justify-between.items-baseline.py-4.px-6.border-dashed.border-grey-dark.border-b
       .text-lg {{ experience.fields.company }}
       .text-sm.text-green(v-if="experience.fields.tillToday") текущее место работы
