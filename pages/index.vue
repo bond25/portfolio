@@ -30,15 +30,18 @@
             .text-3xl 💻
             .text-lg.ml-4 Технологии
           .py-4
-            .text-base.px-6 Языки
-            ul.list-reset.font-thin.text-grey-darker
-              li.py-2.px-6(v-for="lang in person.fields.progLangs" :class="['hover:bg-grey-lighter', 'cursor-pointer']") {{ lang }}
-            .text-base.px-6 Фреймворки
-            ul.list-reset.font-thin.text-grey-darker
-              li.py-2.px-6(v-for="item in person.fields.frameworks" :class="['hover:bg-grey-lighter', 'cursor-pointer']") {{ item }}
-            .text-base.px-6 Базы данных
-            ul.list-reset.font-thin.text-grey-darker
-              li.py-2.px-6(v-for="db in person.fields.databases" :class="['hover:bg-grey-lighter', 'cursor-pointer']") {{ db }}
+            .px-6.flex.items-baseline
+              .text-xs(class="w-1/2") Языки
+              ul.list-reset.font-thin.text-grey-darkest.text-left.text-sm.leading-normal(class="w-1/2")
+                li(v-for="lang in person.fields.progLangs") {{ lang }}
+            .mt-2.px-6.flex.items-baseline
+              .text-xs(class="w-1/2") Фреймворки
+              ul.list-reset.font-thin.text-grey-darkest.text-left.text-sm.leading-normal(class="w-1/2")
+                li(v-for="item in person.fields.frameworks") {{ item }}
+            .mt-2.px-6.flex.items-baseline
+              .text-xs(class="w-1/2") Базы данных
+              ul.list-reset.font-thin.text-grey-darkest.text-left.text-sm.leading-normal(class="w-1/2")
+                li(v-for="db in person.fields.databases") {{ db }}
       div.flex.flex-wrap(class="lg:w-3/4")
         //- Карточка опыта работы
         template(v-if="person" )

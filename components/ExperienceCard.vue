@@ -23,7 +23,7 @@
           li.mt-1.text-sm.text-grey-darkest(
             v-for="(item, index) in experience.fields.responsibilities"
             :key="index"
-          ) {{ item }}
+          ) ◾️ {{ item }}
 </template>
 
 <script>
