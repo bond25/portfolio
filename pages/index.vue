@@ -58,7 +58,7 @@ export default {
     })
     return {
       person: persons.items[0],
-      experience: persons.items[0].fields.experience.reverse()
+      experience: persons.items[0].fields.experience
     }
   }
 }
