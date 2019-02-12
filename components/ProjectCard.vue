@@ -1,14 +1,13 @@
 <template lang="pug">
-  .mt-4.mr-4(class="w-1/2")
+  .mt-4.px-2.w-full(class="lg:w-1/2")
     .rounded.overflow-hidden.shadow-md.bg-white(
       :class="['hover:shadow-lg']"
     )
       .py-4.px-6.border-dashed.border-grey-dark.border-b.flex.items-center.justify-between
         .text-base.font-semibold.text-grey-darkest {{ project.fields.title }}
-        a.github(:href="project.fields.repoUrl" target="_blank")
+        a.github(v-if="github" :href="github" target="_blank")
       .flex
-        .bg-cover(class="w-1/2 h-48" :style="{ 'background-image': 'url(' + project.fields.images[0].fields.file.url + ')' }")
-        //- img.object-contain.mt-1.h-64(class="w-1/2" :src="project.fields.images[0].fields.file.url")
+        .bg-cover(class="w-1/2 h-48" :style="{ 'background-image': 'url(' + image + ')' }")
         .py-4.px-6.text-sm(class="w-1/2")
           .mb-1.font-semibold.text-grey-darkest Что использовал 🛠
           .text-grey-dark.font-normal.leading-normal(
@@ -17,9 +16,20 @@
 </template>
 
 <script>
+import imgPlaceholder from '~/assets/icons/ui.svg'
 export default {
   props: {
     project: {}
+  },
+  computed: {
+    image() {
+      return this.project.fields.images
+        ? this.project.fields.images[0].fields.file.url
+        : imgPlaceholder
+    },
+    github() {
+      return this.project.fields.repoUrl ? this.project.fields.repoUrl : ''
+    }
   }
 }
 </script>
