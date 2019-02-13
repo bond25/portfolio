@@ -1,5 +1,5 @@
 <template lang="pug">
-  .h-screen
+  .h-screen.overflow-hidden
     .overflow-auto.h-full.bg-grey-lighter
       .container.mx-auto.mb-8
         nav.flex.py-6
