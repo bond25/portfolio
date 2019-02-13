@@ -1,18 +1,26 @@
 <template lang="pug">
   .mt-4.px-2.w-full(class="lg:w-1/2")
-    .rounded.overflow-hidden.shadow-md.bg-white(
+    .h-full.rounded.overflow-hidden.shadow-md.bg-white(
       :class="['hover:shadow-lg']"
     )
       .py-4.px-6.border-dashed.border-grey-dark.border-b.flex.items-center.justify-between
-        .text-base.font-semibold.text-grey-darkest {{ project.fields.title }}
+        .text-base.font-semibold.text-teal {{ project.fields.title }}
         a.github(v-if="github" :href="github" target="_blank")
-      .flex
-        .bg-cover(class="w-1/2 h-48" :style="{ 'background-image': 'url(' + image + ')' }")
-        .py-4.px-6.text-sm(class="w-1/2")
+      .flex.flex-col.py-4.px-6
+        .text-sm.w-full
+          .mb-1.font-semibold.text-grey-darkest Задача 🎯
+          .text-grey-dark.font-normal.leading-normal {{ project.fields.description }}
+        .mt-4.text-sm
+          .mb-1.font-semibold.text-grey-darkest Функционал ⭐️
+          .flex.text-grey-dark.font-normal.leading-normal(
+            v-for="name in project.fields.features"
+          ) ◾️
+            .ml-2 {{ name }}
+        .mt-4.text-sm
           .mb-1.font-semibold.text-grey-darkest Что использовал 🛠
-          .text-grey-dark.font-normal.leading-normal(
+          .inline-block.text-grey-dark.font-normal.leading-normal(
             v-for="name in project.fields.technologies"
-          ) ◾️ {{ name }}
+          ) 🔹{{ name }}
 </template>
 
 <script>
